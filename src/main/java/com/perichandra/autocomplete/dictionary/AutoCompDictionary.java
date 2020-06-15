@@ -11,7 +11,7 @@ public class AutoCompDictionary {
     private static final Set<String> dictionary;
 
     static {
-        List<String> stringList = Arrays.asList("tap", "tarsal", "tarsale", "tarsalgia", "tarsectomy", "tarsi", "tarski", "tart", "tartar");
+        List<String> stringList = Arrays.asList("tree", "tarsectomy", "tarsalgia", "tap", "tarsal", "tarsale", "tarsi", "tarski", "tart", "tartar");
         dictionary = new TreeSet<>(stringList);
     }
 

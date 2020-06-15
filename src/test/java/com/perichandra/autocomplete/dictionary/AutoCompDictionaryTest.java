@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class AutoCompDictionaryTest {
 
     AutoCompDictionary autoCompDictionary = new AutoCompDictionary();
-
+    private static final int dictSize = 10;
     @Test
     public void getWordsStartingWith() {
         List<String>  results = autoCompDictionary.getWordsStartingWith("");
@@ -29,7 +29,7 @@ public class AutoCompDictionaryTest {
     public void getWordsStartingWith_1() {
         List<String>  results = autoCompDictionary.getWordsStartingWith("t");
         assertTrue(results != null);
-        assertEquals(9, results.size());
+        assertEquals(dictSize, results.size());
     }
 
     @Test
@@ -52,5 +52,16 @@ public class AutoCompDictionaryTest {
         List<String>  results = autoCompDictionary.getWordsStartingWith("tarz");
         assertTrue(results != null);
         assertEquals(0, results.size());
+    }
+
+
+    @Test
+    public void getWordsStartingWith_sorted() {
+        List<String>  results = autoCompDictionary.getWordsStartingWith("tar");
+        assertTrue(results != null);
+        assertEquals(8, results.size());
+        assertEquals("tarsal", results.get(0));
+        assertEquals("tarsale", results.get(1));
+        System.out.println(results);
     }
 }
