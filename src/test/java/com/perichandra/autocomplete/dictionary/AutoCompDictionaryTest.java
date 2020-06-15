@@ -64,4 +64,16 @@ public class AutoCompDictionaryTest {
         assertEquals("tarsale", results.get(1));
         System.out.println(results);
     }
+
+
+    @Test
+    public void getWordsStartingWith_sorted_limit() {
+        List<String>  results = autoCompDictionary.getWordsStartingWith("tar", 3);
+        assertTrue(results != null);
+        assertEquals(3, results.size());
+        assertEquals("tarsal", results.get(0));
+        assertEquals("tarsale", results.get(1));
+        assertEquals("tarsalgia", results.get(2));
+        System.out.println(results);
+    }
 }

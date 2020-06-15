@@ -15,10 +15,22 @@ public class AutoCompDictionary {
         dictionary = new TreeSet<>(stringList);
     }
 
+    public List<String> queryTheDict(String givenWord) {
+        return dictionary.stream().filter(s -> s.startsWith(givenWord)).collect(Collectors.toList());
+    }
+
     public List<String> getWordsStartingWith(String givenWord) {
         if (StringUtils.isEmpty(givenWord)) {
             return Collections.emptyList();
         }
-        return dictionary.stream().filter(s -> s.startsWith(givenWord)).collect(Collectors.toList());
+        return queryTheDict(givenWord);
+    }
+
+
+    public List<String> getWordsStartingWith(String givenWord, int limit) {
+        if (StringUtils.isEmpty(givenWord)) {
+            return Collections.emptyList();
+        }
+        return  queryTheDict(givenWord).stream().limit(limit).collect(Collectors.toList());
     }
 }
